@@ -4,5 +4,5 @@ version: 0.1
 description: Server Utilities for your server!
 
 commands:
-  utilshelp:
+  serverutilshelp:
     description: Shows general help about how to use this plugin.
