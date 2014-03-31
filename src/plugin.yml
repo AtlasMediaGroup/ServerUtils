@@ -1,0 +1,8 @@
+name: ServerUtils
+main: com.SuperiorNetworks.Projects.ServerUtils.ServerUtils
+version: 0.1
+description: Server Utilities for your server!
+
+commands:
+  utilshelp:
+    description: Shows general help about how to use this plugin.
