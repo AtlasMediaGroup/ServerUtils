@@ -24,6 +24,10 @@ public class Command_serverutilshelp extends BukkitCommand
         { 
             player.sendMessage(ChatColor.DARK_BLUE + "/serverutilsreload  - Reloads the entire server to refresh config options");
         }
+        if (player.hasPermission("serverutils.MySQL.check"))
+        { 
+            player.sendMessage(ChatColor.DARK_BLUE + "/serverutilsmysql - Checks to see if a connection can be established to a test MySQL Database");
+        }
         
         return false;
     }
