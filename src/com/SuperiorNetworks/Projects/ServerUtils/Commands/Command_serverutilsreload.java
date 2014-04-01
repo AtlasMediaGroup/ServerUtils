@@ -8,7 +8,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(source = SourceType.PLAYER)
+@CommandPermissions(source = SourceType.PLAYER, permission = "serverutils.reload")
 public class Command_serverutilsreload extends BukkitCommand
 {
 
@@ -17,7 +17,9 @@ public class Command_serverutilsreload extends BukkitCommand
     {
         Player player = (Player) commandSender;
 
-        player.sendMessage(ChatColor.DARK_RED + "Sorry - This feature has yet to be fully finished and intergrated with the main plugin :( ");
+        player.sendMessage(ChatColor.DARK_RED + "Server Reloading... ");
+        server.dispatchCommand(server.getConsoleSender(), "reload");
+
         return false;
     }
 }
