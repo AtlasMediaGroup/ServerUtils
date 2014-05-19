@@ -1,4 +1,4 @@
-package husky;
+package me.husky;
 
 import java.sql.Connection;
 

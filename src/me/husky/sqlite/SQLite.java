@@ -1,4 +1,4 @@
-package husky.sqlite;
+package me.husky.sqlite;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.util.logging.Level;
 
 import org.bukkit.plugin.Plugin;
 
-import husky.Database;
+import me.husky.Database;
 
 /**
  * Connects to and uses a SQLite database
