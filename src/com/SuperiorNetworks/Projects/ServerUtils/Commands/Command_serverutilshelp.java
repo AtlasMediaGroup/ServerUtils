@@ -7,26 +7,25 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import com.SuperiorNetworks.Projects.ServerUtils.ServerUtils;
 
 @CommandPermissions(source = SourceType.PLAYER)
-public class Command_serverutilshelp extends BukkitCommand
+public class Command_serverutilshelp extends BukkitCommand<ServerUtils>
 {
 
     @Override
     public boolean run(CommandSender commandSender, Command command, String commandLabel, String[] args)
     {
-        Player player = (Player) commandSender;
-
-        player.sendMessage(ChatColor.DARK_PURPLE + "{--- Welcome to Server Utilities --}");
-        player.sendMessage(ChatColor.DARK_PURPLE + "");
-        player.sendMessage(ChatColor.GREEN + "{--- Avalable Commands: --}");
-        if (player.hasPermission("serverutils.reload"))
+        commandSender.sendMessage(ChatColor.DARK_PURPLE + "{--- Welcome to Server Utilities --}");
+        commandSender.sendMessage(ChatColor.DARK_PURPLE + "");
+        commandSender.sendMessage(ChatColor.GREEN + "{--- Avalable Commands: --}");
+        if (commandSender.hasPermission("serverutils.reload"))
         { 
-            player.sendMessage(ChatColor.DARK_BLUE + "/serverutilsreload  - Reloads the entire server to refresh config options");
+            commandSender.sendMessage(ChatColor.DARK_BLUE + "/serverutilsreload  - Reloads the entire server to refresh config options");
         }
-        if (player.hasPermission("serverutils.MySQL.check"))
+        if (commandSender.hasPermission("serverutils.MySQL.check"))
         { 
-            player.sendMessage(ChatColor.DARK_BLUE + "/serverutilsmysql - Checks to see if a connection can be established to a test MySQL Database");
+            commandSender.sendMessage(ChatColor.DARK_BLUE + "/serverutilsmysql - Checks to see if a connection can be established to a test MySQL Database");
         }
         
         return false;

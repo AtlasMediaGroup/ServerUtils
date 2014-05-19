@@ -15,9 +15,8 @@ public class Command_serverutilsreload extends BukkitCommand
     @Override
     public boolean run(CommandSender commandSender, Command command, String commandLabel, String[] args)
     {
-        Player player = (Player) commandSender;
 
-        player.sendMessage(ChatColor.DARK_RED + "Server Reloading... ");
+        commandSender.sendMessage(ChatColor.DARK_RED + "Server Reloading... ");
         server.dispatchCommand(server.getConsoleSender(), "reload");
 
         return false;

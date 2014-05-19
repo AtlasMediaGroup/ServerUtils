@@ -15,9 +15,8 @@ public class Command_serverutilsmysql extends BukkitCommand
     @Override
     public boolean run(CommandSender commandSender, Command command, String commandLabel, String[] args)
     {
-        Player player = (Player) commandSender;
 
-        player.sendMessage(ChatColor.DARK_RED + "Sorry - This feature has yet to be fully finished and intergrated with the main plugin :( ");
+        commandSender.sendMessage(ChatColor.DARK_RED + "Sorry - This feature has yet to be fully finished and intergrated with the main plugin :( ");
         return false;
     }
 }
