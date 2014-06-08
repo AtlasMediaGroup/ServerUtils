@@ -1,5 +1,5 @@
 name: ServerUtils
-main: com.SuperiorNetworks.Projects.ServerUtils.ServerUtils
+main: com.superiornetworks.serverutils.ServerUtils
 version: 0.2
 description: Server Utilities for your server!
 

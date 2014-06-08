@@ -1,6 +1,6 @@
-package com.SuperiorNetworks.Projects.ServerUtils;
+package com.superiornetworks.serverutils;
 
-import com.SuperiorNetworks.Projects.ServerUtils.Commands.Command_serverutilshelp;
+import com.superiornetworks.serverutils.commands.Command_serverutilshelp;
 import java.util.logging.Logger;
 import net.pravian.bukkitlib.BukkitLib;
 import net.pravian.bukkitlib.command.BukkitCommandHandler;
@@ -14,7 +14,8 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ServerUtils extends JavaPlugin {
+public class ServerUtils extends JavaPlugin
+    {
 
     public static final Logger logger = Bukkit.getLogger();
     public static BukkitCommandHandler handler;
@@ -22,17 +23,20 @@ public class ServerUtils extends JavaPlugin {
     public static ServerUtils plugin;
 
     @Override
-    public void onDisable() {
+    public void onDisable()
+        {
         logger.info("Server Utilities Disabled");
-    }
+        }
 
     @Override
-    public void onEnable() {
+    public void onEnable()
+        {
         BukkitLib.init(this);
-    }
+        }
 
     @Override
-    public void onLoad() {
+    public void onLoad()
+        {
 
         plugin = this;
         handler = new BukkitCommandHandler(plugin);
@@ -45,28 +49,33 @@ public class ServerUtils extends JavaPlugin {
         config.options().copyDefaults(true);
         saveConfig();
 
-    }
+        }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args)
+        {
         return handler.handleCommand(sender, cmd, commandLabel, args);
-    }
+        }
 
     // Thanks to the TotalFreedomMod Developers for this little bit!
-    public static void bcastMsg(String message, ChatColor color) {
-        for (Player player : Bukkit.getOnlinePlayers()) {
+    public static void bcastMsg(String message, ChatColor color)
+        {
+        for (Player player : Bukkit.getOnlinePlayers())
+            {
             player.sendMessage((color == null ? "" : color) + message);
+            }
         }
-    }
-    
+
     // Thanks to the TotalFreedomMod Developers for this little bit!
-    public static void bcastMsg(String message) {
+    public static void bcastMsg(String message)
+        {
         ServerUtils.bcastMsg(message, null);
-    }
+        }
 
     // Thanks to the TotalFreedomMod Developers for this bit of cocde!
-    public static void adminAction(String adminName, String action, boolean isRed) {
+    public static void adminAction(String adminName, String action, boolean isRed)
+        {
         ServerUtils.bcastMsg(adminName + " - " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
-    }
+        }
 
-}
+    }
