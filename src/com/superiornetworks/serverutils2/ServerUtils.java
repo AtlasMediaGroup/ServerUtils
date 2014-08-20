@@ -1,6 +1,6 @@
-package com.superiornetworks.serverutils;
+package com.superiornetworks.serverutils2;
 
-import com.superiornetworks.serverutils.commands.Command_serverutilshelp;
+import com.superiornetworks.serverutils.core.commands.Command_serverutilsmysql;
 import java.util.logging.Logger;
 import net.pravian.bukkitlib.BukkitLib;
 import net.pravian.bukkitlib.command.BukkitCommandHandler;
@@ -40,7 +40,7 @@ public class ServerUtils extends JavaPlugin
 
         plugin = this;
         handler = new BukkitCommandHandler(plugin);
-        handler.setCommandLocation(Command_serverutilshelp.class.getPackage());
+        handler.setCommandLocation(Command_serverutilsmysql.class.getPackage());
         config = new YamlConfig(plugin, "config.yml", true);
         config.load();
         PluginDescriptionFile pdfFile = getDescription();
