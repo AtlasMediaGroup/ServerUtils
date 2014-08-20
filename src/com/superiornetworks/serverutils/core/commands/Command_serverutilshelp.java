@@ -7,7 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import com.superiornetworks.serverutils.temp.ServerUtils;
+import com.superiornetworks.serverutils2.ServerUtils;
 
 @CommandPermissions(source = SourceType.PLAYER)
 public class Command_serverutilshelp extends BukkitCommand<ServerUtils>
