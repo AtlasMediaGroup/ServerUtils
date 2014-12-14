@@ -9,7 +9,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class SQLite extends Database {
+public class SQLite extends Database
+    {
 
     private final File database;
     private Connection connection;
@@ -18,41 +19,50 @@ public class SQLite extends Database {
 
     /**
      * Initialises a SQLlite object.
+     *
      * @param database
      */
-    public SQLite(File database) {
+    public SQLite(File database)
+        {
         this.database = database;
-    }
-    
+        }
+
     /**
      * If the connection isn't open, it will connect to it.
      *
      * @return The connection to the SQLite database.
      */
     @Override
-    public Connection openConnection() {
-        if (!(this.database.exists())) {
-            try {
+    public Connection openConnection()
+        {
+        if (!(this.database.exists()))
+            {
+            try
+                {
                 this.database.createNewFile();
-            }
-            catch (IOException ex) {
+                }
+            catch (IOException ex)
+                {
                 logger.log(Level.SEVERE, "Can't create database file.");
+                }
             }
-        }
 
-        try {
+        try
+            {
             Class.forName("org.sqlite.JDBC");
             this.connection = DriverManager.getConnection("jdbc:sqlite:" + this.database);
-        }
-        catch (ClassNotFoundException ex) {
+            }
+        catch (ClassNotFoundException ex)
+            {
             logger.log(Level.SEVERE, "JDBC Driver not found. Can't connect to the database.");
-        }
-        catch (SQLException ex) {
+            }
+        catch (SQLException ex)
+            {
             logger.log(Level.SEVERE, "Could not connect to the SQLite Server because:\n{0}", ex);
-        }
+            }
 
         return this.connection;
-    }
+        }
 
     /**
      * This will return the connection if it's open or not.
@@ -60,9 +70,10 @@ public class SQLite extends Database {
      * @return The connection to the database.
      */
     @Override
-    public Connection getConnection() {
+    public Connection getConnection()
+        {
         return this.connection;
-    }
+        }
 
     /**
      * Checks if the connection is open.
@@ -70,22 +81,27 @@ public class SQLite extends Database {
      * @return A boolean value if the connection is open.
      */
     @Override
-    public boolean isOpen() {
+    public boolean isOpen()
+        {
         return connection != null;
-    }
+        }
 
     /**
      * Closes the connection to the database.
      */
     @Override
-    public void closeConnection() {
-        if (!isOpen()) {
-            try {
+    public void closeConnection()
+        {
+        if (!isOpen())
+            {
+            try
+                {
                 this.connection.close();
-            }
-            catch (SQLException ex) {
+                }
+            catch (SQLException ex)
+                {
                 logger.log(Level.SEVERE, "Could not close the SQLite connection because:\n{0}", ex);
+                }
             }
         }
     }
-}
