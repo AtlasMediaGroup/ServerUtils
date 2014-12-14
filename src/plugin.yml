@@ -6,3 +6,5 @@ description: Server Utilities for your server!
 commands:
   serverutilshelp:
     description: Shows general help about how to use this plugin.
+  serverutilsreload:
+    description: Reloads the entire server
