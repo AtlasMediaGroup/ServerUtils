@@ -1,6 +1,5 @@
 package com.supeirornetworks.projects.serverutils.core;
 
-import com.supeirornetworks.projects.serverutils.core.commands.Command_serverutilshelp;
 import java.util.logging.Logger;
 import net.pravian.bukkitlib.BukkitLib;
 import net.pravian.bukkitlib.command.BukkitCommandHandler;
@@ -37,8 +36,6 @@ public class ServerUtils extends JavaPlugin
         {
 
         plugin = this;
-        handler = new BukkitCommandHandler(plugin);
-        handler.setCommandLocation(Command_serverutilshelp.class.getPackage());
         config = new YamlConfig(plugin, "config.yml", true);
         config.load();
         PluginDescriptionFile pdfFile = getDescription();
@@ -47,12 +44,6 @@ public class ServerUtils extends JavaPlugin
         config.options().copyDefaults(true);
         saveConfig();
 
-        }
-
-    @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args)
-        {
-        return handler.handleCommand(sender, cmd, commandLabel, args);
         }
 
     }
